@@ -34,7 +34,7 @@ namespace BusinessLogic.NbrbApiAccess.Services
                 results.AddRange(resultByPeriod);
                 if (endPeriod == endDate) break;
                 RecountDates(ref startPeriod, ref endPeriod, ref endDate);
-            };
+            }
 
             return results;
         }
@@ -86,7 +86,7 @@ namespace BusinessLogic.NbrbApiAccess.Services
                 var json = await _reader.HttpClientRead(uri);
                 return JsonSerializer.Deserialize<List<T>>(json);
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 return null;
             }
